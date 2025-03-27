@@ -1376,7 +1376,7 @@ ul.pagination li.active a, ul.pagination li > a:hover, ul.pagination li.active a
     line-height: 35px;
     margin-bottom: 10px;
     padding-bottom: 5px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     position: relative;
     text-transform: capitalize;
 }
@@ -1432,17 +1432,62 @@ ul.pagination li.active a, ul.pagination li > a:hover, ul.pagination li.active a
     width: 50%;
     text-align: center
 }
-.bleezy-statement-bottom-area:before {
-    background-image: url("../img/wrap_img.jpg");
-    background-position: center center;
-    background-size: cover;
-    bottom: 0;
+.bleezy-statement-bottom-area {
+    position: relative;
+    overflow: hidden;
+}
+
+.bleezy-statement-bottom-area::before,
+.bleezy-statement-bottom-area::after {
     content: "";
-    left: 0;
     position: absolute;
     top: 0;
+    left: 0;
     width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: opacity 1s ease-in-out;
 }
+
+/* First Image */
+.bleezy-statement-bottom-area::before {
+    background-image: url("../uploads/bouncers.webp");
+    animation: fadeImages 5s infinite alternate;
+}
+
+/* Second Image */
+.bleezy-statement-bottom-area::after {
+    background-image: url("../uploads/staff-3.webp");
+    opacity: 0;
+    animation: fadeImagesReverse 5s infinite alternate;
+}
+@media (max-width: 768px) { 
+    .bleezy-statement-bottom-area::before,
+    .bleezy-statement-bottom-area::after {
+        display: none;
+    }
+}
+
+/* Animation for Image Fading */
+@keyframes fadeImages {
+    0%, 50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeImagesReverse {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .statement-bottom-wrap > h2{
     color: #333;
     font-size: 26px;
@@ -1617,7 +1662,7 @@ ul.pagination li.active a, ul.pagination li > a:hover, ul.pagination li.active a
     line-height: 35px;
     margin-bottom: 10px;
     padding-bottom: 5px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     position: relative;
     text-transform: capitalize;
 }
@@ -1733,7 +1778,7 @@ ul.pagination li.active a, ul.pagination li > a:hover, ul.pagination li.active a
     line-height: 30px;
     margin-bottom: 10px;
     padding-bottom: 5px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     position: relative;
     text-transform: capitalize;
 }
